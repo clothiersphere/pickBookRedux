@@ -7,7 +7,10 @@ class BookList extends Component {
 	renderList() {
 		return this.props.books.map((book) => {
 			return (
-				<li key={book.title} className="list-group-item">{book.title}</li>
+				<li 
+					key={book.title} 
+					onClick={() => this.props.selectBook(book)} 
+					className="list-group-item">{book.title}</li>
 			);
 		});
 	}
@@ -22,7 +25,7 @@ class BookList extends Component {
 }
 
 //glue between react and redux
-//we want this.props.books so we return state.books
+//state books will allows us to call this.props.books
 function mapStateToProps(state) {
 	// Whatever is returned will show up as props 
 	// inside of BookList
